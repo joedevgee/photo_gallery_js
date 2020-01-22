@@ -28,11 +28,7 @@ class GridLayout extends HTMLElement {
     this.loading = true;
     const response = await fetch("./photos.json");
     const json = await response.json();
-    this.photos = json.map(j => ({
-      id: j.id,
-      color: j.color,
-      urls: j.urls
-    }));
+    this.photos = json;
   }
   async connectedCallback() {
     await this.fetchPhotos();
@@ -41,20 +37,21 @@ class GridLayout extends HTMLElement {
     const photos = JSON.parse(v);
     const gridList = this.shadowRoot.getElementById("grid-list");
     gridList.innerHTML = "";
-    photos.forEach(p =>
+    photos.forEach(p => {
       gridList.insertAdjacentHTML(
         "beforeend",
         `
         <li slot="image-item">
           <image-item
-            regular=${p.urls.small}
+            id=${p.id}
             color=${p.color}
+            small=${p.urls.small}
             full=${p.urls.full}
           ></image-item>
         </li>
         `
-      )
-    );
+      );
+    });
   }
 }
 

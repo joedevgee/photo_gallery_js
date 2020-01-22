@@ -17,10 +17,11 @@ class ImageItem extends HTMLElement {
       });
     const img = this.shadowRoot.getElementById("figure-image");
     img.style.backgroundColor = this.getAttribute("color");
-    img.style.backgroundImage = `url(${this.getAttribute("regular")})`;
+    img.setAttribute("src", this.getAttribute("small"));
+    img.setAttribute("alt", this.getAttribute("id"));
     const lightBoxImage = this.shadowRoot.getElementById("lightbox-image");
-    lightBoxImage.style.backgroundColor = this.getAttribute("color");
     lightBoxImage.setAttribute("src", this.getAttribute("full"));
+    lightBoxImage.setAttribute("alt", this.getAttribute("id"));
     this.shadowRoot.getElementById("lightbox").addEventListener("click", () => {
       this.open = "";
     });
@@ -40,7 +41,7 @@ class ImageItem extends HTMLElement {
   }
   attributeChangedCallback(_, __, newVal) {
     this.shadowRoot.getElementById("lightbox").style.display = newVal
-      ? "block"
+      ? "flex"
       : "none";
   }
 }
