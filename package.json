@@ -1,12 +1,15 @@
 {
   "name": "photo_gallery_js",
   "version": "1.0.0",
-  "description": "A photo gallery implemented in vanila js",
+  "description": "A photo gallery implemented in vanilla js",
   "main": "index.js",
   "author": "JoeDevGee <liuqiaowei512@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --open"
+    "start": "webpack-dev-server --open 'Google Chrome'",
+    "build": "webpack",
+    "predeploy": "webpack",
+    "deploy": "sls client deploy"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^3.0.0",
@@ -15,6 +18,8 @@
     "eslint": "^6.8.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
+    "serverless": "^1.61.3",
+    "serverless-finch": "^2.5.2",
     "style-loader": "^1.1.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",

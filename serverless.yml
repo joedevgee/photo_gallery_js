@@ -1,0 +1,24 @@
+service: redfin-gallery
+
+provider:
+  name: aws
+  runtime: nodejs12
+
+region: us-east-1
+
+plugins:
+  - serverless-finch
+
+custom:
+  client:
+    bucketName: my-redfin-gallery-example-bucket
+    distributionFolder: dist
+    indexDocument: index.html
+    errorDocument: index.html
+    objectHeaders:
+      ALL_OBJECTS:
+        - name: Cache-Control
+          value: no-cache
+      "*.js":
+        - name: Cache-Control
+          value: max-age=31536000
