@@ -47,7 +47,7 @@ class GridLayout extends HTMLElement {
         `
         <li slot="image-item">
           <image-item
-            regular=${p.urls.regular}
+            regular=${p.urls.small}
             color=${p.color}
             full=${p.urls.full}
           ></image-item>

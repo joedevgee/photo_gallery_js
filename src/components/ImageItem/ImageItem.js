@@ -20,7 +20,7 @@ class ImageItem extends HTMLElement {
     img.style.backgroundImage = `url(${this.getAttribute("regular")})`;
     const lightBoxImage = this.shadowRoot.getElementById("lightbox-image");
     lightBoxImage.style.backgroundColor = this.getAttribute("color");
-    lightBoxImage.setAttribute("src", this.getAttribute("regular"));
+    lightBoxImage.setAttribute("src", this.getAttribute("full"));
     this.shadowRoot.getElementById("lightbox").addEventListener("click", () => {
       this.open = "";
     });
