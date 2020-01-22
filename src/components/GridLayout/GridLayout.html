@@ -1,0 +1,12 @@
+<style>
+  #grid-list {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-gap: 10px;
+    list-style-type: none;
+  }
+</style>
+<ul id="grid-list">
+  <slot name="image-item">Loading</slot>
+</ul>
